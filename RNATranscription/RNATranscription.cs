@@ -2,32 +2,32 @@
 
 namespace RNATranscriptionModule
 {
-    public static class RnaTranscription
-    {
-        public static string ToRna(string nucleotide)
-        {
-			String str ="";
+	public static class RnaTranscription
+	{
+		public static string ToRna(string nucleotide)
+		{
+			String rna = "";
 			for (int i = 0; i < nucleotide.Length; i++)
 			{
 				if (nucleotide[i].Equals('G'))
 				{
-					str += 'C';
+					rna += 'C';
 				}
 				else if (nucleotide[i].Equals('C'))
 				{
-					str += 'G';
+					rna += 'G';
 				}
 				else if (nucleotide[i].Equals('T'))
 				{
-					str += 'A';
+					rna += 'A';
 				}
 				else if (nucleotide[i].Equals('A'))
 				{
-					str += 'U';
+					rna += 'U';
 				}
 			}
-			return str;
-				
-        }
-    }
+			return rna;
+
+		}
+	}
 }
