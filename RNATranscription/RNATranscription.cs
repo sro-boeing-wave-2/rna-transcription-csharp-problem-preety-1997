@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace RNATranscriptionModule
 {
@@ -6,28 +9,20 @@ namespace RNATranscriptionModule
 	{
 		public static string ToRna(string nucleotide)
 		{
-			String rna = "";
-			for (int i = 0; i < nucleotide.Length; i++)
-			{
-				if (nucleotide[i].Equals('G'))
-				{
-					rna += 'C';
-				}
-				else if (nucleotide[i].Equals('C'))
-				{
-					rna += 'G';
-				}
-				else if (nucleotide[i].Equals('T'))
-				{
-					rna += 'A';
-				}
-				else if (nucleotide[i].Equals('A'))
-				{
-					rna += 'U';
-				}
-			}
-			return rna;
+			Dictionary<char, char> rnaDictionary = new Dictionary<char, char>() {
+			{'G','C'},
+			{'C','G'},
+			{'T','A'},
+			{'A','U'}
 
+			};
+
+			StringBuilder rna = new StringBuilder();
+			foreach (char c in nucleotide)
+			{
+				rna.Append(rnaDictionary[c]);
+			}
+			return rna.ToString();
 		}
 	}
 }
